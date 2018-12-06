@@ -6,12 +6,13 @@ from keras.layers import LSTM
 
 #The model is trained for 20 epochs  
 
-model = Sequential()
-model.add(LSTM(256, input_shape=(maxlen,len(chars))))
-model.add(Dense(len(chars), activation='softmax'))
+def model_gen():
+  model = Sequential()
+  model.add(LSTM(256, input_shape=(maxlen,len(chars))))
+  model.add(Dense(len(chars), activation='softmax'))
 
-model.compile(loss='categorical_crossentropy', optimizer='adam')
-
+  model.compile(loss='categorical_crossentropy', optimizer='adam')
+  return model
 
 
 
